@@ -16,10 +16,10 @@ Social media engagement is up 25% month over month, driven by the new content ca
 
 ## Judge scores
 
-_Which model judged them, then the judge's reply:_
-_Version A: 1 or 0, one-sentence reason_
-_Version B: 1 or 0, one-sentence reason_
+Judge: ChatGPT
+_Version A: 1, Concise and faithful to the email, preserving all key results, the delay and its reason, asset readiness, and the Friday deadline.
+_Version B: : 0, Adds unsupported claims that legal approval is being finalized, timing is the main item to watch, the team aims to win readers back, and the links will measure results as the quarter closes.
 
 ## Do you agree with the judge?
 
-_One line per version: agree or disagree, and why._
+_One line per version: I agree with the judge, also I would like to add that Version A is better from a readablity standpoint as well.
