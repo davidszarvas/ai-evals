@@ -5,8 +5,8 @@
 | Rank | Failure | Trust Tag | Frequency | Severity |
 |---|---|---|---|---|
 | 1 | Outdated | #HALLUCINATION | 8/20, HIGH | P0 |
-| 2 | Misleading sentiment | #HALLUCINATION | 8/20, HIGH | P0 |
-| 3 | Oversimplification | #HALLUCINATION | 8/20, HIGH | P0 |
+| 2 | Misleading sentiment | #HALLUCINATION | 8/20, HIGH | P1 |
+| 3 | Oversimplification | #HALLUCINATION | 8/20, HIGH | P1 |
 
 ## #1 Risk · Business Impact
 
