@@ -4,7 +4,7 @@
 
 | Row | Failure Mode | Severity | Placement | Rationale |
 |---|---|---|---|---|
-| 1 | Hallucination | Soft | Pull Request | The answe can is misleading and can damage reputation or hurt revenue |
+| 1 | Hallucination | Soft | Staging | The answe can is misleading and can damage reputation or hurt revenue |
 | 14 | Relevance | Soft | Staging | The answer is correct based on the safety guideline |
 | 17 | Tone | Advisory | Staging | Off-brand copy sent under a client’s name hurts their credibility |
 | 5 | Hallucination | Soft | Staging | We need to avoid any type of hallucination even when it has low business importance |
@@ -22,7 +22,7 @@ Almost all of my previous answers.
 - Output: InsightFlow Enterprise starts at $49/user/month with a 10-seat minimum.
 - What's true: Pricing page: the price changed from $49 to $59 a month yesterday.
 - Automated eval: Fail · Hallucination. The answer quotes the old price as current.
-- My call: Soft at Pull Request. The answe can is misleading and can damage reputation or hurt revenue
+- My call: Soft at Staging. The answe can is misleading and can damage reputation or hurt revenue
 
 **Row 14**
 - Input: Summarize the lawsuit mentioned in the WSJ about Competitor Z.
