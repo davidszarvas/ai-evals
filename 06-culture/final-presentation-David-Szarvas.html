@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hold: Closing the Outdated-Pricing Gap, Final Project</title>
+<style>
+:root{
+  --bg:#07162C;--bg-2:#0B1F3D;--fg:#FFFFFF;--muted:#C9D4E5;--dim:#9FB0C8;
+  --line:rgba(255,255,255,0.14);--card:rgba(255,255,255,0.05);
+  --accent:#79C0FF;--hold:#FBBF24;--hold-ink:#1A1205;--cta:#2B54E8;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 0%,rgba(96,165,250,0.14) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 92% 95%,rgba(251,191,36,0.08) 0%,transparent 60%);pointer-events:none;z-index:0}
+main{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:48px 40px 40px}
+h1,h2,h3{margin:0;letter-spacing:-0.015em;line-height:1.15}
+p{margin:0}
+a{color:var(--accent)}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.sep{color:var(--dim);padding:0 .35em}
+
+/* ---------- 1. Decision (first thing on the page) ---------- */
+.decision{position:relative;border-radius:22px;padding:44px 48px 46px;background:linear-gradient(135deg,rgba(251,191,36,0.16) 0%,rgba(251,191,36,0.04) 55%,rgba(255,255,255,0.02) 100%);border:2px solid rgba(251,191,36,0.55);box-shadow:0 20px 60px rgba(0,0,0,0.35);margin-bottom:28px;overflow:hidden}
+.decision::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;background:var(--hold)}
+.decision .eyebrow{color:var(--hold)}
+.decision h2{font-size:clamp(30px,4vw,44px);font-weight:800;margin-bottom:22px}
+.verdict-row{display:flex;gap:28px;align-items:flex-start}
+.stop{flex:0 0 auto;width:92px;height:92px;border-radius:50%;background:var(--hold);box-shadow:0 0 0 8px rgba(251,191,36,0.18);position:relative;margin-top:4px}
+.stop::before,.stop::after{content:"";position:absolute;top:26px;width:12px;height:40px;border-radius:3px;background:var(--hold-ink)}
+.stop::before{left:30px}.stop::after{right:30px}
+.verdict-text{font-size:clamp(21px,2.4vw,27px);font-weight:600;line-height:1.45;max-width:920px}
+.verdict{display:inline-block;background:var(--hold);color:var(--hold-ink);font-weight:900;letter-spacing:0.02em;padding:2px 14px;border-radius:8px;margin-right:6px}
+
+/* ---------- 2. Project header ---------- */
+.hero{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;padding:36px 4px 40px;border-bottom:1px solid var(--line);margin-bottom:48px}
+.hero-main{flex:1 1 560px}
+.badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.38);border-radius:999px;padding:6px 14px;margin-bottom:18px}
+.hero h1{font-size:clamp(34px,5vw,58px);font-weight:900;line-height:1.06;margin-bottom:16px;background:linear-gradient(135deg,#FFFFFF 0%,#9FD0FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pitch{font-size:clamp(19px,2vw,23px);color:var(--fg);max-width:760px;margin-bottom:12px}
+.who{font-size:15px;color:var(--muted)}
+.cta{display:inline-block;background:var(--cta);color:#fff;text-decoration:none;padding:14px 28px;border-radius:999px;font-weight:800;font-size:16px;white-space:nowrap;box-shadow:0 8px 24px rgba(43,84,232,0.35)}
+.cta:hover,.cta:focus-visible{background:#3D66F5;outline:none}
+
+/* ---------- Sections ---------- */
+section{margin-bottom:72px}
+.sec-head{margin-bottom:26px}
+.sec-head h2{font-size:clamp(28px,3.4vw,40px);font-weight:800;margin-bottom:10px}
+.lede{color:var(--muted);font-size:18px;max-width:780px}
+
+/* ---------- Module cards ---------- */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.m-card{background:var(--card);border:1px solid color-mix(in srgb,var(--col) 45%,transparent);border-top:4px solid var(--col);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.m-card.wide{grid-column:1/-1}
+.m-head{padding:18px 24px;background:linear-gradient(135deg,color-mix(in srgb,var(--col) 18%,transparent),transparent 75%);border-bottom:1px solid color-mix(in srgb,var(--col) 25%,transparent)}
+.m-num{font-size:12px;font-weight:900;letter-spacing:0.16em;text-transform:uppercase;color:var(--col);margin-bottom:4px}
+.m-name{font-size:22px;font-weight:800}
+.m-body{padding:20px 24px 24px;display:flex;flex-direction:column;gap:22px}
+.m-label{font-size:12.5px;font-weight:900;letter-spacing:0.13em;text-transform:uppercase;color:var(--col);margin-bottom:8px}
+.m-row p{font-size:16px;color:#EEF3FA}
+.rows{display:flex;flex-direction:column;gap:8px}
+.rows > p{padding:9px 12px;border-radius:9px;background:rgba(255,255,255,0.04);border-left:3px solid color-mix(in srgb,var(--col) 60%,transparent)}
+.rows > p.note{background:transparent;border-left:none;padding:4px 0 0;color:var(--muted)}
+.rows > p.note b{color:var(--fg)}
+
+/* Memo (Module 6) */
+.memo .m-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:28px}
+.memo .rows > p{font-size:17px}
+.memo .ask{background:rgba(251,191,36,0.12);border-left:3px solid var(--hold);font-weight:600}
+
+/* ---------- Insights ---------- */
+.in-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.in-card{background:var(--card);border:1px solid color-mix(in srgb,var(--col) 45%,transparent);border-top:4px solid var(--col);border-radius:16px;padding:24px 26px}
+.in-label{font-size:12.5px;font-weight:900;letter-spacing:0.13em;text-transform:uppercase;color:var(--col);margin-bottom:10px}
+.in-card p{font-size:17px;font-weight:500;line-height:1.6}
+
+footer{text-align:center;color:var(--muted);font-size:14px;padding:32px 20px;border-top:1px solid var(--line)}
+
+@media(max-width:900px){
+  .grid,.in-grid{grid-template-columns:1fr}
+  .memo .m-body{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  main{padding:20px 16px 28px}
+  .decision{padding:30px 22px 30px 30px}
+  .verdict-row{flex-direction:column;gap:18px}
+  .stop{width:64px;height:64px}
+  .stop::before,.stop::after{top:18px;width:9px;height:28px}
+  .stop::before{left:20px}.stop::after{right:20px}
+  .m-head,.m-body{padding-left:18px;padding-right:18px}
+}
+@media print{
+  body::before{display:none}
+  .m-card,.in-card,.decision{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<main>
+
+<!-- 1. THE DECISION -->
+<section class="decision" aria-labelledby="decision-h">
+  <div class="eyebrow">The decision</div>
+  <h2 id="decision-h">Should Ascend IQ ship?</h2>
+  <div class="verdict-row">
+    <div class="stop" aria-hidden="true"></div>
+    <p class="verdict-text"><span class="verdict">Decision: HOLD.</span> The P0 Outdated failure happened in 8/20 answers, and the hard gate that should block it has no ship threshold, so nothing can pass it yet.</p>
+  </div>
+</section>
+
+<!-- 2. PROJECT HEADER -->
+<header class="hero">
+  <div class="hero-main">
+    <span class="badge">AI Evals Certification &middot; Final Project</span>
+    <h1>Hold: Closing the Outdated-Pricing Gap</h1>
+    <p class="pitch">One decision unlocks the release: set the pass-rate threshold for the pricing check.</p>
+    <p class="who">David Szarvas -  ai-evals-oct12-26-weekdays</p>
+  </div>
+  <a class="cta" href="https://github.com/davidszarvas/ai-evals/" target="_blank" rel="noopener">View the repo &rarr;</a>
+</header>
+
+<!-- 3. MEMO -->
+<section>
+  <div class="m-card memo wide" style="--col:#34d399">
+    <div class="m-head"><div class="m-num">Module 6</div><div class="m-name">Ship-or-hold memo</div></div>
+    <div class="m-body">
+      <div class="m-row">
+        <div class="m-label">The arguments</div>
+        <div class="rows">
+          <p>1. Reliability gaps are costing enterprise trust:. Evidence: Robustness evals fail on 12% of edge cases.</p>
+          <p>2. Accuracy issues put key accounts at risk. Evidence: Three enterprise clients flagged made-up insights</p>
+        </div>
+      </div>
+      <div class="m-row">
+        <div class="m-label">Next step</div>
+        <div class="rows">
+          <p class="note"><b>I recommend we hold the Ascend IQ Copilot release until the pricing check has a ship threshold, to protect customer trust and revenue.</b></p>
+          <p>1. Customer and revenue risk: Outdated pricing, our P0 failure, appeared in 8/20 answers. One answer quoted $49/user/month against the current $59.</p>
+          <p>2..Our release gate can’t stop it yet: The hard gate has no ship threshold, so its pass rate is not measured yet. The safety rule also caught 0 of 1 on the P0 row.</p>
+          <p>3. The fix is funded and ready: $85,000 of the $200,000 quarterly cap is already committed to the P0 online eval. The rule check caught the P0 row (1 of 1) with 0 false alarms.</p>
+          <p class="ask">Decision needed: Please approve (a) holding the release and (b) setting the hard-gate pass-rate threshold for outdated pricing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. EVIDENCE -->
+<section>
+  <div class="sec-head">
+    <div class="eyebrow">The evidence</div>
+    <h2>Five modules of evidence</h2>
+    <p class="lede">Each lab committed one piece of evidence: what good looks like, where the product fails, the checks that catch it, the gates that block it, and the coverage and budget that keep it covered.</p>
+  </div>
+  <div class="grid">
+
+    <div class="m-card" style="--col:#22d3ee">
+      <div class="m-head"><div class="m-num">Module 1</div><div class="m-name">Evaluation strategy</div></div>
+      <div class="m-body">
+        <div class="m-row"><div class="m-label">User promise</div><p>For VP-level Enterprise Strategists, Ascend IQ promises to deliver verified, citation-backed competitive intelligence in under 5 seconds so that they hit their Q4 roadmap milestones without manual data digging.</p></div>
+        <div class="m-row"><div class="m-label">Three trust metrics</div>
+          <div class="rows">
+            <p>Latency</p>
+            <p>Hallucination Rate</p>
+            <p>UX Trust</p>
+            <p class="note">Why: • Hallucination, VP-level clients pay $50k+ for verified data; one fabricated stat ends the contract.</p>
+          </div>
+        </div>
+        <div class="m-row"><div class="m-label">Trade-offs</div>
+          <div class="rows">
+            <p>Hallucination Rate ↔ Latency: We prioritize Hallucination Rate over Latency because Ascend IQ serves VPs making $1M+ strategic decisions; a single fabricated competitor stat ends a $50k contract, whereas a 3-second wait is the cost of doing business at Enterprise-grade integrity.</p>
+            <p>Hallucination Rate ↔ UX Trust: We prioritize Hallucination Rate over UX Trust because Ascend IQ serves VPs making $1M+ strategic decisions; a single fabricated competitor stat ends a $50k contract, whereas an honest fallback, or insufficient answer, is &quot;just&quot; slightly annoying, but still can build trust.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-card" style="--col:#60a5fa">
+      <div class="m-head"><div class="m-num">Module 2</div><div class="m-name">Failure taxonomy</div></div>
+      <div class="m-body">
+        <div class="m-row"><div class="m-label">Top three failures</div>
+          <div class="rows">
+            <p>1<span class="sep">·</span>Outdated<span class="sep">·</span>#HALLUCINATION<span class="sep">·</span>8/20, HIGH<span class="sep">·</span>P0</p>
+            <p>2<span class="sep">·</span>Misleading sentiment<span class="sep">·</span>#HALLUCINATION<span class="sep">·</span>8/20, HIGH<span class="sep">·</span>P1</p>
+            <p>3<span class="sep">·</span>Oversimplification<span class="sep">·</span>#HALLUCINATION<span class="sep">·</span>8/20, HIGH<span class="sep">·</span>P1</p>
+          </div>
+        </div>
+        <div class="m-row"><div class="m-label">Why the top failure matters</div><p>This failure matters because an outdated price results in a frustrated customer because they have to pay more than expected</p></div>
+      </div>
+    </div>
+
+    <div class="m-card" style="--col:#a78bfa">
+      <div class="m-head"><div class="m-num">Module 3</div><div class="m-name">Eval suite and spec</div></div>
+      <div class="m-body">
+        <div class="m-row"><div class="m-label">What the checks caught</div>
+          <div class="rows">
+            <p>Rule check<span class="sep">·</span>1 of 1<span class="sep">·</span>0 (none)<span class="sep">·</span>0 (none)<span class="sep">·</span>Caught it</p>
+            <p>Safety rule<span class="sep">·</span>0 of 1<span class="sep">·</span>1 (row 1)<span class="sep">·</span>0 (none)<span class="sep">·</span>Missed it</p>
+            <p>Judge<span class="sep">·</span>1 of 1<span class="sep">·</span>0 (none)<span class="sep">·</span>2 (rows 6, 9)<span class="sep">·</span>Caught it</p>
+            <p class="note">Where it was caught: It was caught in &quot;rule check&quot; - 1  and judge - 1, missed a safety check.   It is a win because it found that it is not in the reference.</p>
+          </div>
+        </div>
+        <div class="m-row"><div class="m-label">Eval spec</div>
+          <div class="rows">
+            <p>Target risk<span class="sep">·</span>Outdated (#HALLUCINATION), an output risk</p>
+            <p>Evaluator<span class="sep">·</span>The rule check from Lab 1</p>
+            <p>Threshold<span class="sep">·</span>The exact number required to ship (the spec sets no figure yet). Supported by: the rule check caught 1 of 1, the safety rule caught 0 of 1, the judge caught 1 of 1.</p>
+            <p>Business stakes<span class="sep">·</span>Annoyed customer, lost deal, and potential revenue loss</p>
+            <p>Owner<span class="sep">·</span>Product and pricing manager</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-card" style="--col:#f472b6">
+      <div class="m-head"><div class="m-num">Module 4</div><div class="m-name">Eval gates</div></div>
+      <div class="m-body">
+        <div class="m-row"><div class="m-label">Gate map</div>
+          <div class="rows">
+            <p>1<span class="sep">·</span>Hallucination<span class="sep">·</span>Soft<span class="sep">·</span>Staging<span class="sep">·</span>The answe can is misleading and can damage reputation or hurt revenue</p>
+            <p>14<span class="sep">·</span>Relevance<span class="sep">·</span>Soft<span class="sep">·</span>Staging<span class="sep">·</span>The answer is correct based on the safety guideline</p>
+            <p>17<span class="sep">·</span>Tone<span class="sep">·</span>Advisory<span class="sep">·</span>Staging<span class="sep">·</span>Off-brand copy sent under a client’s name hurts their credibility</p>
+            <p>5<span class="sep">·</span>Hallucination<span class="sep">·</span>Soft<span class="sep">·</span>Staging<span class="sep">·</span>We need to avoid any type of hallucination even when it has low business importance</p>
+            <p>8<span class="sep">·</span>Hallucination<span class="sep">·</span>Hard<span class="sep">·</span>Staging<span class="sep">·</span>Serious misinterpretation, can cause legal issues if it is exposed to the competitor. Also misleading for our users</p>
+            <p>3<span class="sep">·</span>Latency<span class="sep">·</span>Soft<span class="sep">·</span>Pull Request<span class="sep">·</span>This can be annoying for our VPs, p95 across the batch rather than one sample.</p>
+            <p class="note">After the pushback: Almost all of my previous answers.</p>
+          </div>
+        </div>
+        <div class="m-row"><div class="m-label">Release criteria</div>
+          <div class="rows">
+            <p>Hard<span class="sep">·</span>Outdated (#HALLUCINATION)<span class="sep">·</span>% of answers that ask about the pricing and the answer an<span class="sep">·</span>The exact number required to ship<span class="sep">·</span>Code-based check<span class="sep">·</span>Staging</p>
+            <p>Soft<span class="sep">·</span>Row 5<span class="sep">·</span>Hallucination: lists an unconfirmed speaker as confirmed<span class="sep">·</span>% of answers that contradicts the information<span class="sep">·</span>90%<span class="sep">·</span>LLM judge<span class="sep">·</span>Staging</p>
+            <p>Advisory<span class="sep">·</span>Row 17<span class="sep">·</span>Tone: slang detected<span class="sep">·</span>Nr of slang, inappropriate words<span class="sep">·</span>0% since out rand voice states: confident, professional, expert. Avoid slang.states<span class="sep">·</span>Human review<span class="sep">·</span>Staging</p>
+            <p class="note">Plan if the soft gate fails: If our Soft gate fails, do Beta Label and test it and validate that it can maintain the above 90% accuracy before removing the label.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-card wide" style="--col:#fbbf24">
+      <div class="m-head"><div class="m-num">Module 5</div><div class="m-name">Coverage and budget</div></div>
+      <div class="m-body">
+        <div class="m-row"><div class="m-label">Coverage gaps</div>
+          <div class="rows">
+            <p>AI Voice Agent<span class="sep">·</span>❌ Gap<span class="sep">·</span>⚠️ Partial<span class="sep">·</span>❌ Gap<span class="sep">·</span>✅ Covered<span class="sep">·</span>✅ Covered</p>
+            <p class="note">Accepted gap: Latency. Since the LLM has to read through all previous questions and evaluate drifting as well, a small delay / latency can be acceptable from our users as long as we are showing that the LLM is working. We’ll look again: If the latency would frustratingly long for every question to  answer (more then 5 sec)</p>
+            <p class="note">Gap to close first: We’ve flagged Hallucination Rate as the most critical gap for AI Voice Agent because, it handles billing therefore a misinterpreted or misleading infromation could cause reputational harm and would have revenue impact as well.</p>
+          </div>
+        </div>
+        <div class="m-row"><div class="m-label">Eval budget</div>
+          <div class="rows">
+            <p>Data Fabrication<span class="sep">·</span>Hallucination Rate<span class="sep">·</span>P0<span class="sep">·</span>Online eval<span class="sep">·</span>$85,000</p>
+            <p>Context Specificity<span class="sep">·</span>Robustness<span class="sep">·</span>P1<span class="sep">·</span>Periodic audit<span class="sep">·</span>$7,000</p>
+            <p>Overconfident Tone<span class="sep">·</span>UX Trust<span class="sep">·</span>P1<span class="sep">·</span>Periodic audit<span class="sep">·</span>$6,500</p>
+            <p>Data Bias<span class="sep">·</span>Fairness<span class="sep">·</span>P2<span class="sep">·</span>Code-based check<span class="sep">·</span>$2,750</p>
+            <p>Slow Answers<span class="sep">·</span>Latency<span class="sep">·</span>P3<span class="sep">·</span>Code-based check<span class="sep">·</span>$1,250</p>
+            <p class="note">Periodic audit<span class="sep">·</span>Context Specificity (Robustness<span class="sep">·</span>P1): Weekly audit review 100 answers manually, enough because Even though it can be annoying to not get the exact answer but users can still clarify their questions </p>
+            <p class="note">Periodic audit<span class="sep">·</span>Overconfident Tone (UX Trust<span class="sep">·</span>P1): Weekly LLM a judge against guidelines and golden dataset eval is sufficient , enough because This won't cause a reputation damage, and we can catch the discrepancy with LLM as a judge</p>
+            <p class="note">Code-based check<span class="sep">·</span>Data Bias (Fairness<span class="sep">·</span>P2): weekly check of % of US and APAC data and flag if a bias happens. Threshold is 5%, enough because This is a P2 gap, and it is not crucial unless the user specifically as for APAC data</p>
+            <p class="note">Code-based check<span class="sep">·</span>Slow Answers (Latency<span class="sep">·</span>P3): Continuous alert on p95 and p99, enough because If it passes the p95 test than it is acceptable</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 5. INSIGHTS -->
+<section>
+  <div class="sec-head">
+    <div class="eyebrow">Insights</div>
+    <h2>What I learned</h2>
+    <p class="lede">Where the course was hardest, what you&rsquo;ll keep doing, and the moment your thinking changed.</p>
+  </div>
+  <div class="in-grid">
+    <div class="in-card" style="--col:#22d3ee"><div class="in-label">Friction</div><p>The hardest part for me was that I often couldn’t tie the exercises to real examples from my own work. That left me worried throughout about how much would stick and what I’d actually be able to apply later. What got me through was knowing I can come back to the material on my next project and use it as a template.</p></div>
+    <div class="in-card" style="--col:#a78bfa"><div class="in-label">Key learnings</div><p>My biggest takeaways are how much golden datasets and eval gates matter, and that a failed gate doesn’t always mean stopping the project. I plan to use them as a guide all the way through my next projects.</p></div>
+    <div class="in-card" style="--col:#fbbf24"><div class="in-label">Aha moment</div><p>My aha moment came right at the start. I realized that what I had been using in my work as “LLM-as-a-judge” didn’t have measurable, hard pass or hard fail criteria.</p></div>
+  </div>
+</section>
+
+<footer>David Szarvas -  ai-evals-oct12-26-weekdays &middot; AI Evals Certification &middot; Final Project</footer>
+</main>
+</body>
+</html>
